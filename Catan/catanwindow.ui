@@ -36,7 +36,7 @@
      <enum>Qt::ScrollBarAlwaysOff</enum>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="totalDistributed">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -49,21 +49,27 @@
      <string>Total Resources Distributed: 0</string>
     </property>
    </widget>
-   <widget class="QGraphicsView" name="graphicsView">
+   <widget class="QGraphicsView" name="lineView">
     <property name="geometry">
      <rect>
       <x>20</x>
       <y>700</y>
-      <width>791</width>
-      <height>101</height>
+      <width>800</width>
+      <height>105</height>
      </rect>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>660</y>
+      <y>670</y>
       <width>121</width>
       <height>31</height>
      </rect>

@@ -3,6 +3,7 @@
 #include "player.h"
 #include <QObject>
 #include <QGraphicsItem>
+#include <QLabel>
 
 class Campsite : public QObject, public QGraphicsItem
 {
@@ -10,9 +11,9 @@ class Campsite : public QObject, public QGraphicsItem
 public:
     Campsite(int, int, Player*);
     explicit Campsite(QObject *parent = nullptr);
-    QRectF boundingRect() const override;
-    QPainterPath shape() const override;
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *item, QWidget *widget) override;
+    virtual QRectF boundingRect() const override;
+    virtual QPainterPath shape() const override;
+    virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *item, QWidget *widget) override;
     void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
     void setColor(QColor color){
         color_=color;
@@ -21,28 +22,43 @@ public:
     void setOwner(Player* player){
         owner_ = player;
     }
-
-    Player* getOwner() { return owner_; }
-    int getReward() { return 1; }
+    int getX() { return x_; }
+    int getY() { return y_; }
+    virtual Player* getOwner() { return owner_; }
+    virtual int getReward() { return 1; }
 
 
 signals:
     void Click(Campsite*);
 
+
 public slots:
 
-private:
+protected:
      Player* owner_;
      QColor color_;
      int x_;
      int y_;
 };
 
+
 class SpaceStation : public Campsite
 {
 public:
+    SpaceStation(int x, int y, Player* player, QColor color):
+        Campsite(x,y,player)
+        { color_ = color;}
+
+    QRectF boundingRect() const override;
+    QPainterPath shape() const override;
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *item, QWidget *widget) override;
     int getReward() { return 2; }
-private:
+
+//private:
+//     Player* owner_;
+//     QColor color_;
+//     int x_;
+//     int y_;
 };
 
 #endif // CAMPSITE_H

@@ -26,15 +26,18 @@ SOURCES += \
         main.cpp \
         catanwindow.cpp \
     player.cpp \
-    campsite.cpp
+    campsite.cpp \
+    mainmenu.cpp
 
 HEADERS += \
         catanwindow.h \
     player.h \
-    campsite.h
+    campsite.h \
+    mainmenu.h
 
 FORMS += \
-    catanwindow.ui
+    catanwindow.ui \
+    mainmenu.ui
 
 OTHER_FILES += img/*.png
 
@@ -47,5 +50,5 @@ RESOURCES += \
     resources.qrc
 
 DISTFILES += \
-    img/blackhole.png
+    img/blackhole.png \
 

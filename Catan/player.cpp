@@ -1,6 +1,11 @@
 #include "player.h"
 
-Player::Player(int id, QColor color)
+/**
+    Player Contructor
+    @param int for id, and a color
+    @return
+*/
+Player::Player(int id, QColor color, bool human)
 {
     id_ = id;
     color_ = color;
@@ -8,8 +13,16 @@ Player::Player(int id, QColor color)
     stone_ = 0;
     oxygen_ = 0;
     totalUsed_ = 0;
+    points_ = 0;
+    human_ = human;
+    pointsOverTime_.push_back(0);
 }
 
+/**
+    Increase the amount of a specific material
+    @param ResourceType of material being updated, and int of how much to change
+    @return
+*/
 void Player::increaseResource(ResourceType type, int reward)
 {
     switch (type) {
@@ -23,4 +36,13 @@ void Player::increaseResource(ResourceType type, int reward)
             oxygen_ += reward;
             break;
     }
+}
+
+
+void Player::increasePoints(){
+    points_++;
+}
+
+void Player::increaseUsed(int number){
+    totalUsed_ += number;
 }
