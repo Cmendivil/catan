@@ -77,22 +77,6 @@ void Campsite::mousePressEvent(QGraphicsSceneMouseEvent *event)
     }
 }
 
-
-
-///**
-//    Space Station Constructor
-//    @param two int for coordinate, and a player pointer
-//    @return
-//*/
-//SpaceStation::SpaceStation(int x, int y, Player* owner, QColor color)
-//{
-//    owner_ = owner;
-//    this->color_ = color;
-//    this->x_ = x * 150;
-//    this->y_ = y * 150;
-//}
-
-
 /**
     Build bounding rectangle where the object will be drawn
     @param

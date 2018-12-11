@@ -17,9 +17,7 @@ public:
 
 private slots:
     void on_OnePlayer_clicked();
-
     void on_TwoPlayer_clicked();
-
     void on_ThreePlayer_clicked();
 
 private:
