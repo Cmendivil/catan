@@ -47,15 +47,10 @@ public:
     void takeComputerTurn();
     bool goodPlace(int,int);
 
-
-
 private slots:
     void on_diceButton_clicked();
-
     void on_endTurnButton_clicked();
-
     void on_buildCampsiteButton_clicked();
-
     void on_buildSpaceStationButton_clicked();
 
 public slots:

@@ -4,6 +4,11 @@
 #include "player.h"
 #include <QDebug>
 
+/**
+    Main Menu Contructor
+    @param QWidget
+    @return
+*/
 MainMenu::MainMenu(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::MainMenu)
@@ -13,11 +18,21 @@ MainMenu::MainMenu(QWidget *parent) :
 
 }
 
+/**
+    Main Menu Destructor
+    @param
+    @return
+*/
 MainMenu::~MainMenu()
 {
     delete ui;
 }
 
+/**
+    1 player option
+    @param
+    @return
+*/
 void MainMenu::on_OnePlayer_clicked()
 {
     Player* p1 = new Player(1,QColor(255,0,0),true);
@@ -32,6 +47,11 @@ void MainMenu::on_OnePlayer_clicked()
     ui->stackedWidget->setCurrentIndex(1);
 }
 
+/**
+    2 player option
+    @param
+    @return
+*/
 void MainMenu::on_TwoPlayer_clicked()
 {
     Player* p1 = new Player(1,QColor(255,0,0),true);
@@ -47,6 +67,11 @@ void MainMenu::on_TwoPlayer_clicked()
     ui->stackedWidget->setCurrentIndex(1);
 }
 
+/**
+    3 player option
+    @param
+    @return
+*/
 void MainMenu::on_ThreePlayer_clicked()
 {
     Player* p1 = new Player(1,QColor(255,0,0),true);

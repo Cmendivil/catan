@@ -27,38 +27,30 @@ public:
     virtual Player* getOwner() { return owner_; }
     virtual int getReward() { return 1; }
 
-
 signals:
     void Click(Campsite*);
-
 
 public slots:
 
 protected:
-     Player* owner_;
-     QColor color_;
-     int x_;
-     int y_;
+    Player* owner_;
+    QColor color_;
+    int x_;
+    int y_;
 };
-
 
 class SpaceStation : public Campsite
 {
 public:
     SpaceStation(int x, int y, Player* player, QColor color):
         Campsite(x,y,player)
-        { color_ = color;}
+    { color_ = color;}
 
     QRectF boundingRect() const override;
     QPainterPath shape() const override;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *item, QWidget *widget) override;
     int getReward() { return 2; }
 
-//private:
-//     Player* owner_;
-//     QColor color_;
-//     int x_;
-//     int y_;
 };
 
 #endif // CAMPSITE_H
