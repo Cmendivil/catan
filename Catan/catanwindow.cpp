@@ -37,29 +37,6 @@ CatanWindow::CatanWindow(std::vector<Player*> players, QWidget *parent) :
     metal_ = new QPixmap(":/img/img/metal.png");
     stone_ = new QPixmap(":/img/img/stone.png");
 
-    // Generate materials
-    for(int i = 0; i < 3;  i++) {
-        for(int j = 0; j < 4; j++) {
-            int num = rand() % 100;
-            resources_[i][j].active = true;
-            if(num < 15) {
-                resources_[i][j].picture = metal_;
-                resources_[i][j].type = ResourceType::Metal;
-
-            } else if(num < 60) {
-                resources_[i][j].picture = stone_;
-                resources_[i][j].type = ResourceType::Stone;
-
-            } else if(num < 100) {
-                resources_[i][j].picture = oxygen_;
-                resources_[i][j].type = ResourceType::Oxygen;
-
-            }
-              QPixmap item( *resources_[i][j].picture);
-              boardScene->addPixmap(item)->setPos(j*150,i*150);
-        }
-    }
-
     // Plot the blackhole
     int x = rand() % 4;
     int y = rand() % 3;
@@ -69,6 +46,32 @@ CatanWindow::CatanWindow(std::vector<Player*> players, QWidget *parent) :
     resources_[y][x].active = false;
     QPixmap item( *resources_[y][x].picture);
     boardScene->addPixmap(item)->setPos(x*150,y*150);
+
+    // Generate materials
+    for(int i = 0; i < 3;  i++) {
+        for(int j = 0; j < 4; j++) {
+            if (resources_[i][j].type != ResourceType::BlackHole){
+                int num = rand() % 100;
+                resources_[i][j].active = true;
+                if(num < 15) {
+                    resources_[i][j].picture = metal_;
+                    resources_[i][j].type = ResourceType::Metal;
+
+                } else if(num < 60) {
+                    resources_[i][j].picture = stone_;
+                    resources_[i][j].type = ResourceType::Stone;
+
+                } else if(num < 100) {
+                    resources_[i][j].picture = oxygen_;
+                    resources_[i][j].type = ResourceType::Oxygen;
+
+                }
+                  QPixmap item( *resources_[i][j].picture);
+                  boardScene->addPixmap(item)->setPos(j*150,i*150);
+            }
+        }
+    }
+
 
     QGraphicsView* buildingView = ui->buildingView;
     buildingView->setScene(buildingScene);

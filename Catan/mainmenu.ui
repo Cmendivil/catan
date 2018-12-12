@@ -23,7 +23,7 @@
     </rect>
    </property>
    <widget class="QWidget" name="menu">
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>180</x>
@@ -44,7 +44,7 @@
         </property>
         <property name="text">
          <string>Welcome to Catan!
-How many people is playing?</string>
+How many people are playing?</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
